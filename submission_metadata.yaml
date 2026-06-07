@@ -1,0 +1,49 @@
+# Redrob Hackathon — Submission Metadata
+team_name: "team_talentmind"
+
+primary_contact:
+  name: "TalentMind Team"
+  email: "talentmind-h2s@example.com"
+  phone: "+91-9876543210"
+
+team_members:
+  - name: "TalentMind Lead"
+    email: "talentmind-h2s@example.com"
+    role: "AI Engineer"
+
+github_repo: "https://github.com/talentmind-ai/redrob-challenge"
+sandbox_link: "https://share.streamlit.io/talentmind-ai/dashboard"
+reproduce_command: "python main.py --rank --candidates ./data/candidates.jsonl --jd ./data/job_description.docx --out ./outputs/team_talentmind.csv"
+
+compute:
+  platform: "Local PC"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.12.13"
+  os: "Windows 11"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: true
+  pre_computation_time_minutes: 25
+
+ai_tools_used:
+  - "Gemini"
+
+ai_usage_summary: |
+  Used Gemini 3.5 Flash (Medium) as a pairing partner for architectural design, code generation, and debugging.
+  No candidate data was uploaded to external APIs during ranking.
+
+methodology_summary: |
+  A two-stage candidate ranking system utilizing FAISS dense vector retrieval (all-MiniLM-L6-v2) for Stage 1. 
+  Stage 2 employs a 7-factor re-ranking scoring framework: Semantic Similarity (35%), Skill Match (20%), 
+  Experience Match (15%), Project Relevance (10%), Behavioral Signals (10%), Education Match (5%), 
+  and Profile Quality (5%). Major inconsistencies (job duration anomalies, expert skills with 0 duration) 
+  are detected and penalized to ensure a 0% honeypot rate. Deterministic tie-breaking is handled via 
+  candidate_id ascending. The entire online ranking pipeline runs in under 10 seconds on CPU.
+
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
