@@ -83,44 +83,6 @@ TalentMind-AI/
 
 ---
 
-## 💻 Setup & Installation
-
-Ensure you have [uv](https://github.com/astral-sh/uv) or `pip` installed.
-
-1. **Clone/create project directory** and navigate inside it.
-2. **Place challenge files** in the `data/` folder:
-   * `candidates.jsonl`
-   * `job_description.docx`
-   * `validate_submission.py`
-3. **Set up virtual environment** and install dependencies:
-   ```bash
-   uv venv --python 3.12
-   .venv\Scripts\activate
-   uv pip install -r requirements.txt
-   ```
-
----
-
-## 🏃 How to Run
-
-### Step 1: Precompute Candidate Embeddings (Offline)
-This generates embeddings for the 100,000 candidate profiles. Note that this step exceeds the 5-minute budget but is done offline once.
-```bash
-python main.py --precompute --candidates ./data/candidates.jsonl --embeddings ./data/candidate_embeddings.npy
-```
-
-### Step 2: Run Online Ranking (CPU-Only)
-Loads precomputed embeddings, runs FAISS search, scores the candidates, generates reasoning, and saves the CSV. This completes in **under 10 seconds**:
-```bash
-python rank.py --candidates ./data/candidates.jsonl --jd ./data/job_description.docx --out ./outputs/team_talentmind.csv
-```
-
-### Step 3: Run Interactive Streamlit UI
-To launch the recruiter dashboard:
-```bash
-streamlit run app.py
-```
-
 ---
 
 ## 📊 Sample Output Format
