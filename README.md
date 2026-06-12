@@ -60,31 +60,6 @@ The final score is normalized to a `[0, 100]` range and computed as follows:
 
 ---
 
-## 📂 Project Structure
-
-```text
-TalentMind-AI/
-├── data/                       # Dataset directory (place candidates.jsonl here)
-├── src/                        # Core source package
-│   ├── jd_parser.py            # Word document parser and extractor
-│   ├── embedding_engine.py     # sentence-transformers embedding helper
-│   ├── retrieval_engine.py     # FAISS indexing and vector search
-│   ├── ranking_engine.py       # 7-factor scoring engine and anomaly detector
-│   ├── explainability.py       # Candidate reasoning generator
-│   └── submission_generator.py # CSV formatter and validation pipeline
-├── outputs/                    # Output directory for generated CSVs
-├── main.py                     # Primary CLI entry point
-├── rank.py                     # Simplified execution wrapper
-├── app.py                      # Streamlit interactive dashboard UI
-├── requirements.txt            # Python library dependencies
-├── submission_metadata.yaml    # Participant registration info
-└── README.md                   # System documentation
-```
-
----
-
----
-
 ## 📊 Sample Output Format
 
 ```csv
